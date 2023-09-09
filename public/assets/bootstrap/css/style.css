@@ -61,9 +61,6 @@ a {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
-nav-link {
- text-decoration: underline;
-}
 
 h1,
 h2,

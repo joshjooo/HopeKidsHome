@@ -33,6 +33,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
    <body>
+       @include('layouts.partials.messages')
       <!-- header section start -->   
       <div class="header_section">
          
@@ -86,7 +87,7 @@
                         <div class="col-sm-12">
                            <h1 class="banner_taital">HOPE KIDS HOME</h1>
                            <p class="banner_text">To provide a safe and loving home environment for children from disadvantaged backgrounds. </p>
-                           <div class="read_bt"><a href="#">Read More</a></div>
+                           <div class="read_bt"><a href="#about">Read More</a></div>
                         </div>
                      </div>
                   </div>
@@ -94,41 +95,47 @@
                      <div class="col-sm-12">
                         <h1 class="banner_taital">Help Poor Child</h1>
                         <p class="banner_text">To ensure the physical, emotional, and educational needs of the children are met.</p>
-                        <div class="read_bt"><a href="#">Read More</a></div>
+                        <div class="read_bt"><a href="#about">Read More</a></div>
                      </div>
                   </div>
                   <div class="carousel-item">
                      <div class="col-sm-12">
                         <h1 class="banner_taital">HOPE KIDS HOME</h1>
                         <p class="banner_text">To promote holistic development by offering educational opportunities, healthcare, and emotional support. </p>
-                        <div class="read_bt"><a href="#">Read More</a></div>
+                        <div class="read_bt"><a href="#about">Read More</a></div>
                      </div>
                   </div>
                   <div class="carousel-item">
                      <div class="col-sm-12">
                         <h1 class="banner_taital">Help Poor Child</h1>
                         <p class="banner_text">To empower the children with vocational training and life skills for their future success. </p>
-                        <div class="read_bt"><a href="#">Read More</a></div>
+                        <div class="read_bt"><a href="#about">Read More</a></div>
                      </div>
                   </div>
                   <div class="carousel-item">
                      <div class="col-sm-12">
                         <h1 class="banner_taital">HOPE KIDS HOME</h1>
                         <p class="banner_text">To advocate for the rights and well-being of orphaned and vulnerable children in the community. </p>
-                        <div class="read_bt"><a href="#">Read More</a></div>
+                        <div class="read_bt"><a href="#about">Read More</a></div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         <div class="donation_box">
-            <h4 class="donation_taital">Contact For Donation</h4>
+         <div class="donation_box" id="join">
+            <h4 class="donation_taital">Join For Donation</h4>
+            <form action="{{url('/')}}" class="d-flex flex-column " method="POST">
+               @csrf
             <div class="mail_box">
-               <input type="" class="mail_text" placeholder="Your Name" name="Your Name">
-               <input type="" class="mail_text" placeholder="Email" name="Email">
-               <input type="" class="mail_text" placeholder="Phone" name="Phone">
+               <input type="text" required class="mail_text" placeholder="Your Name" name="name">
+               <input type="email" required class="mail_text" placeholder="Email" name="email">
+               <input type="text" required class="mail_text" placeholder="Phone" name="phone">
             </div>
-            <div class="send_bt"><a href="#">Send</a></div>
+            <div class="d-flex justify-content-center">
+               <button class="btn btn-danger align-middle mx-auto " type="submit">Send</button>
+
+            </div>
+            </form>
          </div>
          <div class="fundraise_section">
             <div class="fundraise_section_main">
@@ -138,7 +145,7 @@
                         <div class="icon_1"><img src=" {{asset('images/icon-1.png')}}"></div>
                         <h4 class="volunteer_text">VOLUNTEERS</h4>
                         <p class="lorem_text">To advocate for the rights and well-being of orphaned and vulnerable children in the community.</p>
-                        <div class="join_bt"><a href="#">Join Now</a></div>
+                        <div class="join_bt"><a href="#join">Join Now</a></div>
                      </div>
                   </div>
                   <div class="col-lg-4">
@@ -146,7 +153,7 @@
                         <div class="icon_1"><img src="{{asset('images/icon-2.png')}}"></div>
                         <h4 class="volunteer_text">FUNDRAISE</h4>
                         <p class="lorem_text">To advocate for the rights and well-being of orphaned and vulnerable children in the community.</p>
-                        <div class="join_bt"><a href="#">Join Now</a></div>
+                        <div class="join_bt"><a href="#join">Join Now</a></div>
                      </div>
                   </div>
                   <div class="col-lg-4">
@@ -154,7 +161,7 @@
                         <div class="icon_1"><img src="{{asset('images/icon-3.png')}}"></div>
                         <h4 class="volunteer_text">DONATION</h4>
                         <p class="lorem_text">To advocate for the rights and well-being of orphaned and vulnerable children in the community.</p>
-                        <div class="join_bt"><a href="#">Join Now</a></div>
+                        <div class="join_bt"><a href="#join">Join Now</a></div>
                      </div>
                   </div>
                </div>           
@@ -163,6 +170,7 @@
       </div>
       </div>
       <!-- banner section end -->
+      
       <!-- about section start -->
       <div class="about_section layout_padding" id='about'>
          <div class="container">
@@ -173,7 +181,7 @@
                      Charity of Hope Ministry International and is dedicated to making a positive impact on the lives of 
                      children from disadvantaged backgrounds. We provide a safe and nurturing environment where these children 
                      receive love, care, education, and support. </p>
-                  <div class="readmore_bt"><a href="#">Read more</a></div>
+                  <div class="readmore_bt"><a href="#vision">Read more</a></div>
                </div>
                <div class="col-sm-4">
                   <div class="about_img"><img src=" {{asset('images/about-img.png')}}"></div>
@@ -191,10 +199,7 @@
             <div class="row pt-3">
                <div class="col-sm-12">
                   <h1 class="mission_taital"> Vision</h1>
-                  <p class="mission_text">Our vision is to build a better future for the children under our 
-                     care by ensuring their physical, emotional, and educational needs are met. We envision a 
-                     society where every child has equal access to opportunities, regardless of their 
-                     background, and where they are empowered to break free from the cycle of poverty. </p>
+                  <p class="mission_text">{{$vision->description}}</p>
                </div>
             </div>
          </div>
@@ -203,9 +208,7 @@
             <div class="row">
                <div class="col-sm-12">
                   <h1 class="mission_taital">Mission</h1>
-                  <p class="mission_text">Our mission is to create hope and change the lives of children in 
-                     need. We strive to provide a loving home, education, and opportunities that will empower
-                      them to reach their full potential and become contributing members of society. </p>
+                  <p class="mission_text">{{$mission->description}} </p>
                </div>
             </div>
          </div>
@@ -221,7 +224,7 @@
                            <p class="alteration_text">We believe in showing empathy, love, and understanding towards every child under our care</p>
                            <div class="btn_main">
                               <div class="donate_bt"><a href="#">Read More</a></div>
-                              <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                              <div class="donate_bt"><a href="#join">Donate Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -235,8 +238,8 @@
                            <h4 class="some_text">Integrity </h4>
                            <p class="alteration_text">We uphold honesty, transparency, and professionalism in everything we do.</p>
                            <div class="btn_main">
-                              <div class="donate_bt"><a href="#">Read More</a></div>
-                              <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                              <div class="donate_bt"><a href="#mission">Read More</a></div>
+                              <div class="donate_bt"><a href="#join">Donate Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -244,7 +247,7 @@
                </div>
             </div>
          </div>
-         <div class="mission_section_2">
+         <div class="mission_section_2" id="mission">
             <div class="row">
                <div class="col-md-5">
                   <div class="container_main">
@@ -254,8 +257,8 @@
                            <h4 class="some_text">Respect</h4>
                            <p class="alteration_text">We treat every child with dignity, respect their cultural differences, and encourage inclusivity.</p>
                            <div class="btn_main">
-                              <div class="donate_bt"><a href="#">Read More</a></div>
-                              <div class="donate_bt"><a href="#">Donate Now</a></div>
+                              <div class="donate_bt"><a href="#objective">Read More</a></div>
+                              <div class="donate_bt"><a href="#join">Donate Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -269,8 +272,8 @@
                            <h4 class="some_text">Excellence</h4>
                            <p class="alteration_text">We strive for excellence in providing high-quality care, education, and support for the children.</p>
                            <div class="btn_main">
-                              <div class="donate_bt"><a href="#">Read More</a></div>
-                              <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                              <div class="donate_bt"><a href="#objective">Read More</a></div>
+                              <div class="donate_bt"><a href="#join">Donate Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -290,8 +293,8 @@
                            <h4 class="some_text">Collaboration </h4>
                            <p class="alteration_text">We actively seek partnerships and collaborations with like-minded organizations, individuals, and government bodies to achieve our goals.</p>
                            <div class="btn_main">
-                              <div class="donate_bt"><a href="#">Read More</a></div>
-                              <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                              <div class="donate_bt"><a href="#objective">Read More</a></div>
+                              <div class="donate_bt"><a href="#join">Donate Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -305,8 +308,8 @@
                            <h4 class="some_text">Integrity </h4>
                            <p class="alteration_text">We uphold honesty, transparency, and professionalism in everything we do.</p>
                            <div class="btn_main">
-                              <div class="donate_bt"><a href="#">Read More</a></div>
-                              <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                              <div class="donate_bt"><a href="#objective">Read More</a></div>
+                              <div class="donate_bt"><a href="#join">Donate Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -331,16 +334,20 @@
                      <div class="news_img"><img src="{{asset('images/news-img.png')}}"></div>
                   </div>
                   <div class="col-md-6">
-                     <h1 class="give_taital">OBJECTIVES</h1>
-                     <p class="ipsum_text">To provide a safe and loving home environment for children from disadvantaged backgrounds.<br>
-                       To ensure the physical, emotional, and educational needs of the children are met. <br>
-                      To promote holistic development by offering educational opportunities, healthcare, and emotional support.<br>
-                     To empower the children with vocational training and life skills for their future success.<br>
-                 </p>
+                     <h1>OBJECTIVES</h1>
+                     @foreach ($objs as $obj)
+                  <li class="list-group-item">
+                    
+                      
+                        {{$obj->description}}
+                      
+                  
+                     </li>
+                     @endforeach
                      
                      <div class="donate_btn_main">
-                        <div class="readmore_btn"><a href="#">Read More</a></div>
-                        <div class="readmore_btn_1"><a href="#">Donate Now</a></div>
+                        <div class="readmore_btn"><a href="#testimonial">Read More</a></div>
+                        <div class="readmore_btn_1"><a href="#join">Donate Now</a></div>
                      </div>
                   </div>
                </div>
@@ -355,35 +362,27 @@
             <h1 class="donate_taital">Testimonial</h1>
             <div class="donate_taital_main">
                <div id="main_slider" class="carousel slide" data-ride="carousel">
+                     <ol class="carousel-indicators">
+                @foreach($test as $obj)
+                <li data-target=".main_slider" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                @endforeach
+            </ol>
                   <div class="carousel-inner">
-                     <div class="carousel-item active">
+                     @foreach ($test as $obj)
+                     
+                     <div class="carousel-item row {{ $loop->first ? 'active' : '' }}">
                         <div class="donate_left">
-                           <div class="client_img"><img src=" {{asset('images/client-img.png')}}"></div>
+                           <div class="client_img"><img width='120px'  src="{{asset('images/'.$obj->avatar)}}"></div>
                         </div>
                         <div class="donate_right">
-                           <h3 class="client_name_text">Daud John</h3>
-                           <p class="dummy_text">I cannot emphasize enough the profound joy and fulfillment I experienced through this charity website. It has allowed me to be part of something much larger than myself, providing a sense of purpose and hope that transcends the challenges of everyday life. Their commitment to the causes they champion is awe-inspiring, and it serves as a beacon of hope in a world that sometimes seems overwhelming.</p>
+                           <h3 class="client_name_text">{{$obj->name}}</h3>
+                           <p class="dummy_text">{{$obj->description}}</p>
                         </div>
                      </div>
-                     <div class="carousel-item">
-                        <div class="donate_left">
-                           <div class="client_img"><img src="{{asset('images/client-img.png')}}"></div>
-                        </div>
-                        <div class="donate_right">
-                           <h3 class="client_name_text">Isack Idd</h3>
-                           <p class="dummy_text">Thank you for giving me the opportunity to be part of this extraordinary journey of compassion and transformation. This website has changed my life, and I am forever grateful.</p>
-                        </div>
-                     </div>
-                     <div class="carousel-item">
-                        <div class="donate_left">
-                           <div class="client_img"><img src="{{asset('images/client-img.png')}}"></div>
-                        </div>
-                        <div class="donate_right">
-                           <h3 class="client_name_text">Musa Haasan</h3>
-                           <p class="dummy_text">But what truly sets this charity apart is the sense of community it fosters. I found myself surrounded by like-minded individuals, all driven by a shared desire to create a better world. The forum and social media platforms connected me to countless volunteers and beneficiaries, allowing me to witness the profound impact of our collective efforts. Together, we built a network of compassion that transcended borders and time zones.</p>
-                        </div>
-                     </div>
+                      @endforeach
+
                   </div>
+
                   <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
                   <i class="fa fa-angle-right"></i>
                   </a>
@@ -428,9 +427,9 @@
                </div>
                <div class="col-sm-6 col-md-6 col-lg-3">
                   <h4 class="footer_taital">address</h4>
-                  <p class="footer_text">Kerege, along Bagamoyo Road, Dar es Salaam </p>
-                  <p class="footer_text">+255 647 477 478</p>
-                  <p class="footer_text">info@gmail.com</p>
+                  <p class="footer_text">{{$contact->Address}}</p>
+                  <p class="footer_text">{{$contact->phone}}</p>
+                  <p class="footer_text">{{$contact->email}}</p>
                </div>
             </div>
             <div class="footer_section_2">
@@ -438,17 +437,17 @@
                   <div class="col-sm-4 col-md-4 col-lg-3">
                      <div class="social_icon">
                         <ul>
-                           <li><a href="#"><img src="{{asset('images/fb-icon.png')}}"></a></li>
-                           <li><a href="#"><img src="{{asset('images/twitter-icon.png')}}"></a></li>
-                           <li><a href="#"><img src="{{asset('images/linkedin-icon.png')}}"></a></li>
-                           <li><a href="#"><img src="{{asset('images/instagram-icon.png')}}"></a></li>
+                           <li><a href="{{$contact->facebook}}"><img src="{{asset('images/fb-icon.png')}}"></a></li>
+                           <li><a href="{{$contact->twitter}}"><img src="{{asset('images/twitter-icon.png')}}"></a></li>
+                           <li><a href="{{$contact->linkedin}}"><img src="{{asset('images/linkedin-icon.png')}}"></a></li>
+                           <li><a href="{{$contact->instagram}}"><img src="{{asset('images/instagram-icon.png')}}"></a></li>
                         </ul>
                      </div>
                   </div>
-                  <div class="col-sm-8 col-md-8 col-lg-9">
+                  <!-- <div class="col-sm-8 col-md-8 col-lg-9">
                      <input type="text" class="address_text" placeholder="Enter your Enail" name="text">
                      <button type="button" class="get_bt">SUBSCRIBE</button>
-                  </div>
+                  </div> -->
                </div>
             </div>
          </div>
